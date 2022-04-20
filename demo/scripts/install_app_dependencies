@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo pip3 install virtualenv
+cd /ubuntu/klarrio
+virtualenv venv1
+source venv1/bin/activate
+sudo pip3 install -r requirements.txt
