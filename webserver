@@ -1,1 +1,29 @@
-cd /home/ununtu/
+# install nginx and gunicorn
+sudo apt-get install -y nginx
+pip3 install gunicorn
+gunicorn --bind 0.0.0.0:8080 demo.run:app
+
+sudo apt update && sudo apt install supervisor
+sudo systemctl status supervisor
+cd /etc/supervisor/conf.d
+sudo touch gunicorn.conf 
+sudo nano gunicorn.conf 
+
+sudo mkdir /var/log/gunicorn
+
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl status
+
+cd /etc/nginx/sites-available/
+
+sudo touch flask.conf
+sudo nano flask.conf 
+
+sudo ln flask.conf /etc/nginx/sites-enabled/
+
+sudo nano /etc/nginx/nginx.conf
+#server_names_hash_bucket_size  256;
+sudo nginx -t
+
+sudo service nginx restart
