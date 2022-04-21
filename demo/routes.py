@@ -9,8 +9,8 @@ import pymysql
 
 conn = pymysql.connect(
     host='127.0.0.1',
-    user='root',
-    password='741111',
+    user='jimmy',
+    password='741111.As',
     db='klarrio'
 )
 
