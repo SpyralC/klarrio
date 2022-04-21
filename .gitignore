@@ -50,3 +50,4 @@ Thumbs.db
 
 venv1/
 .pytest_cache/
+*.pyc
