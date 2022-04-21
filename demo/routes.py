@@ -10,7 +10,7 @@ import pymysql
 conn = pymysql.connect(
     host='127.0.0.1',
     user='root',
-    password='',
+    password='741111',
     db='klarrio'
 )
 
