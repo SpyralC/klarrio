@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn instance to serve klarrio
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/klarrio
+Environment="PATH=/home/ubuntu/klarrio/venv1/bin"
+ExecStart=/home/ubuntu/klarrio/venv1/bin/gunicorn --workers 3 --bind unix:klarrio.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
