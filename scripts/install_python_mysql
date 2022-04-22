@@ -53,6 +53,11 @@ quit
 
 # then add database and table to mysql
 
+# make sure mysql will be restarted
+sudo nano /home/ubuntu/klarrio/scripts/mysqlmon.sh
+sudo chmod +x /home/ubuntu/klarrio/scripts/mysqlmon.sh
+
+
 #   install flask app dependencies
 sudo apt update 
 source venv1/bin/activate
