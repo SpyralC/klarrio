@@ -1,0 +1,23 @@
+#!/bin/bash   
+#   configure gunicorn & systemd
+
+pip install gunicorn
+
+gunicorn -b 0.0.0.0:5000 wsgi:app &
+sudo nano /etc/systemd/system/klarrio.service
+
+sudo systemctl daemon-reload
+sudo systemctl start klarrio
+sudo systemctl enable klarrio
+
+curl localhost:5000
+
+#   Nginx Webserver
+
+sudo apt-get install nginx -y
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+sudo nano /etc/nginx/sites-available/default
+sudo systemctl restart nginx

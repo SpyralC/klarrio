@@ -1,9 +1,14 @@
+# git clone
+ssh-keygen -o
+cat /home/ubuntu/.ssh/id_rsa.pub
+# then add shh key to github, restart terminal
+git clone git@github.com:SpyralC/klarrio.git
 
 #   install python3.9
 sudo apt update
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt install python3.9
+sudo apt install python3.9 -y
 python3.9 --version
 
 #   set python3.9 as default
@@ -12,6 +17,7 @@ sudo su
 ls -lrth python*
 unlink python
 ln -s /usr/bin/python3.9 python
+unlink python3
 ln -s /usr/bin/python3.9 python3
 python --version
 exit
@@ -21,18 +27,20 @@ sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.9 get-pip.py
 
 #   reinstall python3-apt
-sudo apt remove python3-apt
+sudo apt remove python3-apt -y
 sudo apt autoclean
 sudo apt install python3-apt
 
 #   install python3.9-venv
 sudo apt-get install python3.9-venv
+cd /home/ubuntu/klarrio
 python3.9 -m venv venv1
 source venv1/bin/activate
 
+
 #   install mysql
 sudo apt update
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 sudo systemctl start mysql.service
 sudo mysql_secure_installation
 
@@ -41,4 +49,16 @@ sudo mysql
 CREATE USER 'jimmy'@'localhost' IDENTIFIED BY '741111.As';
 #DROP USER 'jimmy'@'localhost';
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'jimmy'@'localhost' WITH GRANT OPTION;
+quit
 
+# then add database and table to mysql
+
+#   install flask app dependencies
+sudo apt update 
+source venv1/bin/activate
+pip3 install -r requirements.txt
+
+#   test app
+python wsgi.py
+
+#   Done

@@ -4,9 +4,11 @@ After=network.target
 
 [Service]
 User=ubuntu
+Group=www-data
 WorkingDirectory=/home/ubuntu/klarrio
 Environment="PATH=/home/ubuntu/klarrio/venv1/bin"
-ExecStart=/home/ubuntu/klarrio/venv1/bin/gunicorn --workers 3 --bind unix:klarrio.sock -m 007 wsgi:app
+ExecStart=/home/ubuntu/klarrio/venv1/bin/gunicorn --workers 3 --bind localhost:5000 wsgi:app
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
