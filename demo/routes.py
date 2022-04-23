@@ -44,18 +44,7 @@ def index():
 
             return redirect(url_for('index'))
         else:
-            cur = conn.cursor()
-            sql = "select * from peopleAge"
-            cur.execute(sql)
-            content = cur.fetchall()
-
-            sql = "SHOW FIELDS FROM peopleAge"
-            cur.execute(sql)
-            labels = cur.fetchall()
-            labels = [l[0] for l in labels]
-
-            conn.commit()
-            return render_template('index.html', labels=labels, content=content, html_form=form)
+            return "submit failed"
 
     else:
         cur = conn.cursor()
