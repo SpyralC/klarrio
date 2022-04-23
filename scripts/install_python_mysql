@@ -56,7 +56,10 @@ quit
 # make sure mysql will be restarted
 sudo nano /home/ubuntu/klarrio/scripts/mysqlmon.sh
 sudo chmod +x /home/ubuntu/klarrio/scripts/mysqlmon.sh
+# To test the cript, let's stop mysql and try this bash
+# sudo service mysql stop
 # sudo /home/ubuntu/klarrio/scripts/mysqlmon.sh
+
 
 #   install flask app dependencies
 sudo apt update 
