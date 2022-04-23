@@ -44,11 +44,15 @@ sudo apt install mysql-server -y
 sudo systemctl start mysql.service
 sudo mysql_secure_installation
 
-#   create mysql user
+#   create mysql user and database
 sudo mysql
 CREATE USER 'jimmy'@'localhost' IDENTIFIED BY '741111.As';
 #DROP USER 'jimmy'@'localhost';
 GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'jimmy'@'localhost' WITH GRANT OPTION;
+
+create database klarrio;
+use klarrio
+create table peopleAge (id int not null auto_increment, name varchar(50), age int, primary key (id));
 quit
 
 # then add database and table to mysql

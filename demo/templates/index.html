@@ -13,7 +13,7 @@
 </head>
 <body>
 <form action="" method="post", style="margin: auto; text-align:center">
-    {{ html_form.hidden_tag() }}
+    {{ html_form.csrf_token}
     <div>
         {{ html_form.name.label }}<br />
         {{ html_form.name() }}
