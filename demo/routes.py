@@ -45,9 +45,9 @@ def index():
             return redirect(url_for('index'))
         else:
             name = form.name.data
-            name_t = form.name.type
+            name_t = type(name)
             age = form.age.data
-            age_t = form.age.type
+            age_t = type(age)
 
             return "submit failed, name is {}, type is {}; age is {}, type is {}.".format(name,name_t,age,age_t)
 
