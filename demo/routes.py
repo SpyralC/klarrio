@@ -44,7 +44,12 @@ def index():
 
             return redirect(url_for('index'))
         else:
-            return "submit failed"
+            name = form.name.data
+            name_t = form.name.type
+            age = form.age.data
+            age_t = form.age.type
+
+            return "submit failed, name is {}, type is {}; age is {}, type is {}.".format(name,name_t,age,age_t)
 
     else:
         cur = conn.cursor()
