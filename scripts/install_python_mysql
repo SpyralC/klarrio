@@ -56,7 +56,9 @@ create table peopleAge (id int not null auto_increment, name varchar(50), age in
 quit
 
 # then add database and table to mysql
-
+create database klarrio;
+use klarrio
+CREATE TABLE peopleAge (id int auto_increment, name VARCHAR(20), age int(3), primary key(id));
 # make sure mysql will be restarted
 sudo nano /home/ubuntu/klarrio/scripts/mysqlmon.sh
 sudo chmod +x /home/ubuntu/klarrio/scripts/mysqlmon.sh
@@ -64,6 +66,14 @@ sudo chmod +x /home/ubuntu/klarrio/scripts/mysqlmon.sh
 # sudo service mysql stop
 # sudo /home/ubuntu/klarrio/scripts/mysqlmon.sh
 
+# Add the MySQL Auto Restart Script to Crontab
+sudo crontab -e
+# Choose nano. In crontab, add the following line to the bottom of the file.
+# * * * * * /home/ubuntu/klarrio/scripts/mysqlmon.sh > /dev/null 2>&1
+
+# monitor metrics script
+chmod -x /home/ubuntu/klarrio/scripts/get-metrics.sh
+sh /home/ubuntu/klarrio/scripts/get-metrics.sh
 
 #   install flask app dependencies
 sudo apt update 

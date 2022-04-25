@@ -1,4 +1,0 @@
-#!/bin/bash
-cd /home/ubuntu/klarrio/
-source venv1/bin/activate
-supervisord -c supervisord.conf
