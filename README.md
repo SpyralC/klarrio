@@ -8,7 +8,7 @@ This README would normally document whatever steps are necessary to get your app
 
 ### Summary ###
 
-* The main program is written with the flask framework. Flask provides a package named flask_wtf, which allows me to write a form validation easily. I also add CSRF Protect to the application.
+* The main program is written with the flask framework, Python3.9. Flask provides a package named flask_wtf, which allows me to write a form validation easily. I also add CSRF Protect to the application.
 * The database I use is MySQL Ver 8.0.28. I create a localhost user 'jimmy' with necessary privileges. There is no user-login table now, so anyone can write to the database.
 * Dependencies are shown in requirements.txt
 * I use gunicorn and nginx to expose the application to the internet.
