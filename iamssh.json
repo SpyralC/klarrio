@@ -1,0 +1,22 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": "ec2-instance-connect:SendSSHPublicKey",
+        "Resource": [
+            "arn:aws:ec2:ap-southeast-2:045524232087:instance/i-0e42b00269c28164f"
+        ],
+        "Condition": {
+            "StringEquals": {
+                "ec2:osuser": "klarrio"
+            }
+        }
+      },
+      {
+        "Effect": "Allow",
+        "Action": "ec2:DescribeInstances",
+        "Resource": "*"
+      }
+    ]
+}

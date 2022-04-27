@@ -19,12 +19,21 @@ class SubmitForm(FlaskForm):
     age     = IntegerField('Age', validators=[DataRequired()])
     submit  = SubmitField('Submit')
 
+def pymysqlsafeconn():
+    conn = pymysql.connect(
+        host='127.0.0.1',
+        user='jimmy',
+        password='741111.As',
+        db='klarrio'
+    )
+    return conn
+
 @app.route('/', methods=["POST", "GET"])
 def index():
     form = SubmitForm()
     if request.method == 'POST':
         if form.validate_on_submit():
-            
+            conn = pymysqlsafeconn()
             cur = conn.cursor()
 
             sql = "INSERT INTO `peopleAge` (`name`, `age`) VALUES (%s, %s)"
@@ -41,7 +50,7 @@ def index():
             cur.execute(sql)
             labels = cur.fetchall()
             labels = [l[0] for l in labels]
-
+            conn.close()
             return redirect(url_for('index'))
         else:
             name = form.name.data
@@ -52,6 +61,7 @@ def index():
             return "submit failed, name is {}, type is {}; age is {}, type is {}.".format(name,name_t,age,age_t)
 
     else:
+        conn = pymysqlsafeconn()
         cur = conn.cursor()
         sql = "select * from peopleAge"
         cur.execute(sql)
@@ -63,4 +73,5 @@ def index():
         labels = [l[0] for l in labels]
 
         conn.commit()
+        conn.close()
         return render_template('index.html', labels=labels, content=content, html_form=form)
