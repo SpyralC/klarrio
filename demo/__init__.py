@@ -3,7 +3,7 @@ from flask_wtf import CSRFProtect
 
 app = Flask(__name__)
 app.config.update(
-    DEBUG=True,
+    DEBUG=False,
     SECRET_KEY="secret_sauce",
 )
 

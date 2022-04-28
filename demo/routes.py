@@ -46,19 +46,11 @@ def index():
             cur.execute(sql)
             content = cur.fetchall()
 
-            sql = "SHOW FIELDS FROM peopleAge"
-            cur.execute(sql)
-            labels = cur.fetchall()
-            labels = [l[0] for l in labels]
+            labels = ["ID", "Name", "Age"]
             conn.close()
             return redirect(url_for('index'))
         else:
-            name = form.name.data
-            name_t = str(type(name))
-            age = form.age.data
-            age_t = str(type(age))
-
-            return "submit failed, name is {}, type is {}; age is {}, type is {}.".format(name,name_t,age,age_t)
+            return "Submition failed."
 
     else:
         conn = pymysqlsafeconn()
@@ -67,10 +59,7 @@ def index():
         cur.execute(sql)
         content = cur.fetchall()
 
-        sql = "SHOW FIELDS FROM peopleAge"
-        cur.execute(sql)
-        labels = cur.fetchall()
-        labels = [l[0] for l in labels]
+        labels = ["ID", "Name", "Age"]
 
         conn.commit()
         conn.close()
