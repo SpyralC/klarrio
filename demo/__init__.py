@@ -10,7 +10,6 @@ app.config.update(
 csrf = CSRFProtect()
 csrf.init_app(app)
 
-from demo import routes
 
 
 
