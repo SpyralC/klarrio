@@ -4,7 +4,7 @@ import secrets
 app = Flask(__name__)
 app.config.update(
     DEBUG=False,
-    SECRET_KEY=secrets.token_urlsafe(8),
+    SECRET_KEY='2233asdfQAQ',
 )
 
 csrf = CSRFProtect()
