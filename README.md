@@ -5,6 +5,7 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * This repository is for a technical exercise to write a web form application which allows users to submit pairs of name and age to the database.
+![1651211979(1)](https://user-images.githubusercontent.com/57895489/165891891-c3d8fb7a-e038-4922-b170-7dfe1279c1a2.png)
 
 ### Summary ###
 
