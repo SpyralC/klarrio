@@ -60,6 +60,7 @@ quit
 create database klarrio;
 use klarrio
 CREATE TABLE peopleAge (id int auto_increment, name VARCHAR(20), age int(3), primary key(id));
+
 # make sure mysql will be restarted
 sudo nano /home/ubuntu/klarrio/scripts/mysqlmon.sh
 sudo chmod +x /home/ubuntu/klarrio/scripts/mysqlmon.sh

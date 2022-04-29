@@ -2,7 +2,7 @@
 #   configure gunicorn & systemd
 
 pip install gunicorn
-pip install cryptography
+pip install cryptography 
 
 gunicorn -b 0.0.0.0:5000 wsgi:app &
 sudo cp /home/ubuntu/klarrio/configs/klarrio.service /etc/systemd/system/klarrio.service
