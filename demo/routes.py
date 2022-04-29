@@ -4,12 +4,12 @@ from flask import render_template, request, flash, redirect, url_for
 from demo import app         
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, NumberRange
 import pymysql
 
 class SubmitForm(FlaskForm):
     name    = StringField('Name', validators=[DataRequired()])
-    age     = IntegerField('Age', validators=[DataRequired(),Length(max=3,min=1)])
+    age     = IntegerField('Age', validators=[DataRequired(),NumberRange(min=0,max=200)])
     submit  = SubmitField('Submit')
 
 def pymysqlsafeconn():
