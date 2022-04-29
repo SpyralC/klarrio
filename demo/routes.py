@@ -4,19 +4,12 @@ from flask import render_template, request, flash, redirect, url_for
 from demo import app         
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 import pymysql
-
-conn = pymysql.connect(
-    host='127.0.0.1',
-    user='jimmy',
-    password='741111.As',
-    db='klarrio'
-)
 
 class SubmitForm(FlaskForm):
     name    = StringField('Name', validators=[DataRequired()])
-    age     = IntegerField('Age', validators=[DataRequired()])
+    age     = IntegerField('Age', validators=[DataRequired(),Length(max=3,min=1)])
     submit  = SubmitField('Submit')
 
 def pymysqlsafeconn():
@@ -42,15 +35,10 @@ def index():
             conn.commit()
             flash('name: {}, age: {} has been submitted successfully'.format(form.name.data, form.age.data), 'success')
 
-            sql = "select * from peopleAge"
-            cur.execute(sql)
-            content = cur.fetchall()
-
-            labels = ["ID", "Name", "Age"]
             conn.close()
             return redirect(url_for('index'))
         else:
-            return "Submition failed."
+            return redirect(url_for('index'))
 
     else:
         conn = pymysqlsafeconn()

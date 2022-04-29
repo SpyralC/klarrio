@@ -1,3 +1,4 @@
+#!/bin/bash
 # git clone
 ssh-keygen -o
 cat /home/ubuntu/.ssh/id_rsa.pub
@@ -48,7 +49,7 @@ sudo mysql_secure_installation
 sudo mysql
 CREATE USER 'jimmy'@'localhost' IDENTIFIED BY '741111.As';
 #DROP USER 'jimmy'@'localhost';
-GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'jimmy'@'localhost' WITH GRANT OPTION;
+GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT on *.* TO 'jimmy'@'localhost' WITH GRANT OPTION;
 
 create database klarrio;
 use klarrio
